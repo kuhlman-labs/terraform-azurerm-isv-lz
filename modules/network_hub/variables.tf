@@ -1,5 +1,5 @@
 ###
-# stack inputs
+# module inputs
 ###
 
 #common
