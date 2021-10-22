@@ -9,7 +9,7 @@ variable "environment" {
   type        = string
 }
 
-variable "region" {
+variable "location" {
   description = "Geographic region resource will be deployed into"
   type        = string
 }
