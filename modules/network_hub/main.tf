@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "network_hub" {
   location            = azurerm_resource_group.networking.location
   resource_group_name = azurerm_resource_group.networking.name
   address_space       = var.address_space
-  tags = var.tags
+  tags                = var.tags
 }
 
 #bastion host
