@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "virtual_network_spoke" {
   location            = azurerm_resource_group.virtual_network_spoke.location
   resource_group_name = azurerm_resource_group.virtual_network_spoke.name
   address_space       = var.address_space
-  tags = var.tags
+  tags                = var.tags
 }
 
 resource "azurerm_virtual_network_peering" "spoke-to-hub" {
