@@ -9,7 +9,7 @@ variable "environment" {
   type        = string
 }
 
-variable "region" {
+variable "location" {
   description = "Geographic region resource will be deployed into"
   type        = string
 }
@@ -27,7 +27,22 @@ variable "address_space" {
   type        = list(any)
 }
 
-variable "bastion_host_address_prefix" {
+variable "aks_node_address_prefix" {
   description = "The address prefix to use for the bastion subnet."
   type        = list(any)
+}
+
+variable "virtual_network_hub_name" {
+  description = "The name of the hub virtual network"
+  type        = string
+}
+
+variable "virtual_network_hub_resource_group_name" {
+  description = "The name of the hub virtual network resource group"
+  type        = string
+}
+
+variable "virtual_network_hub_id" {
+  description = "The id of the hub virtual network"
+  type        = string
 }

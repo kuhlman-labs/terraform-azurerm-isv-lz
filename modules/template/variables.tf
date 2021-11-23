@@ -19,3 +19,8 @@ variable "tags" {
   type        = map(any)
   default     = {}
 }
+
+variable "name_prefix" {
+  description = "A short pre-defined text to identify the resource type"
+  type        = string
+}

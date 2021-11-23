@@ -20,6 +20,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "name_prefix" {
+  description = "A short pre-defined text to identify the resource type"
+  type        = string
+  default     = "vnet-hub"
+}
+
 #network
 
 variable "address_space" {

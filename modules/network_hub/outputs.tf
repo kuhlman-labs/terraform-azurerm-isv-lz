@@ -13,6 +13,6 @@ output "network_hub_id" {
 }
 
 output "network_hub_resource_group_name" {
-  value       = azurerm_resource_group.network_hub.name
+  value       = azurerm_resource_group.networking.name
   description = "resouce group name for network hub"
 }

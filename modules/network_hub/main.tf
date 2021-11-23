@@ -3,15 +3,15 @@
 ###
 
 resource "azurerm_resource_group" "networking" {
-  name     = module.naming.resource_group.name
-  location = var.region
+  name     = "rg-${var.name_prefix}-${var.environment}-${var.location}"
+  location = var.location
   tags     = var.tags
 }
 
 #network
 
 resource "azurerm_virtual_network" "network_hub" {
-  name                = module.naming.virtual_network.name
+  name                = "${var.name_prefix}-${var.environment}-${azurerm_resource_group.networking.location}"
   location            = azurerm_resource_group.networking.location
   resource_group_name = azurerm_resource_group.networking.name
   address_space       = var.address_space
@@ -28,7 +28,7 @@ resource "azurerm_subnet" "bastion_host" {
 }
 
 resource "azurerm_public_ip" "bastion_host" {
-  name                = module.naming.public_ip.name
+  name                = "ip-bh-${var.environment}-${azurerm_resource_group.networking.location}"
   location            = azurerm_resource_group.networking.location
   resource_group_name = azurerm_resource_group.networking.name
   allocation_method   = "Static"
@@ -36,9 +36,9 @@ resource "azurerm_public_ip" "bastion_host" {
 }
 
 resource "azurerm_bastion_host" "bastion_host" {
-  name                = module.naming.bastion_host.name
+  name                = "bh-${var.environment}-${azurerm_resource_group.networking.location}"
   location            = azurerm_resource_group.networking.location
-  resource_group_name = azurerm_resource_group.networking
+  resource_group_name = azurerm_resource_group.networking.name
 
   ip_configuration {
     name                 = "bastion-host-ip-config"
