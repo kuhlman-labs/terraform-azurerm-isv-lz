@@ -95,8 +95,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "aks_node_pool_1" {
 #container registry
 
 resource "random_string" "acr" {
-  length = 6
-  min_numeric = 6 
+  length      = 6
+  min_numeric = 6
 }
 
 resource "azurerm_container_registry" "aks" {
